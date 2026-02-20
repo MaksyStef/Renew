@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Django runserver",
+      "type": "process",
+      "command": "Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}/MakSite/manage.py",
+        "runserver"
+      ],
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "group": "localhosts",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+    "label": "React dev server",
+    "type": "shell",
+    "command": "npm run dev",
+    "options": {
+      "cwd": "${workspaceFolder}/MakSite/frontend"
+    },
+    "group": {
+      "isDefault": true,
+      "kind": "build"
+    },
+    "presentation": {
+      "echo": false,
+      "reveal": "never",
+      "focus": false,
+      "panel": "shared",
+      "group": "localhosts",
+      "showReuseMessage": false,
+      "clear": true
+    },
+    "problemMatcher": [
+      "$tsc-watch",
+      "$vite"
+    ],
+    "isBackground": true
+    },
+    {
+      "label": "Run both servers",
+      "dependsOn": [
+        "Django runserver",
+        "React dev server"
+      ],
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "dedicated",
+        "group": "localhosts",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true,
+      }
+    }
+  ]
+}
