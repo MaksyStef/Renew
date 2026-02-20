@@ -1,0 +1,7 @@
+# Byte-compiled / optimized / DLL files / venv / data base
+__pycache__/
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+db.sqlite3
