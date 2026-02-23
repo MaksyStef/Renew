@@ -1,0 +1,35 @@
+/* =============== SCSS Variables =============== */
+$bgc: #37344A;
+$bgc-shapes: #363537;
+$text-light: #F4FAFF;
+$text-dark: #818AA3;
+$default-text-size: 16px;
+
+
+/* =============== Imports =============== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+
+/* =============== Styles =============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bgc;
+  font-family: "Open Sans", sans-serif;
+  color: $text-light;
+  font-size: $default-text-size;
+}
+.page-wrapper {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
