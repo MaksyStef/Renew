@@ -1,5 +1,5 @@
 // Import Libraries
-import { lazy, Suspense } from 'react'
+import { Component, lazy, useEffect, useState } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Import Components
@@ -10,25 +10,26 @@ const Home = lazy(() => import('./pages/Home.tsx'))
 const About = lazy(() => import('./pages/About.tsx'))
 
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={
-            <Suspense fallback={<LoadScreen />}>
-              <Home />
-            </Suspense>
-          } />
-          <Route path="/about" element={
-            <Suspense fallback={<LoadScreen />}>
-              <About />
-            </Suspense>
-            } />
-        </Routes>
-      </Router>
-    </>
-  )
+export default class App extends Component {
+  state = {
+    isLoading: true
+  }
+
+  componentDidMount(): void {
+      this.setState({ isLoading: false })
+  }
+  render() {
+    return (
+      <>
+        <LoadScreen isLoading={this.state.isLoading} />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Router>
+      </>
+    )
+  }
 }
 
-export default App
