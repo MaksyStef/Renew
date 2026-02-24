@@ -4,7 +4,7 @@ $bgc-shapes: #363537;
 $text-light: #F4FAFF;
 $text-dark: #818AA3;
 $default-text-size: 16px;
-
+$mobile-text-size: 14px;
 
 /* =============== Imports =============== */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
@@ -32,4 +32,43 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
+  &_snap {
+    position: absolute;
+    min-height: none;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    
+    > div {
+      position: relative;
+      flex: 1 0 100vh;
+      scroll-snap-align: start;
+    }
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+  body, html {
+    font-size: $mobile-text-size;
+  }
+}
+@include media-breakpoint-down(md) {
+  body, html {
+  }
+}
+@include media-breakpoint-down(lg) {
+  body, html {
+    font-size: $default-text-size;
+  }
+}
+@include media-breakpoint-down(xl) {
+  body, html {
+  }
+}
+@include media-breakpoint-down(xxl) {
+  body, html {
+  }
 }
