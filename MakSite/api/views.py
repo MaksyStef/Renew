@@ -2,7 +2,7 @@ from rest_framework import serializers, viewsets
 from .models import Project
 
 # Serializers define the API representation.
-class ProjectsSerializer(serializers.HyperlinkedModelSerializer):
+class ProjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ['id', 'title', 'details', 'imageSrc']
