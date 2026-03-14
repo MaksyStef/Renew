@@ -5,7 +5,7 @@ from .models import Project
 class ProjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'title', 'details', 'imageSrc']
+        fields = ['title', 'details', 'imageSrc']
 
 # ViewSets define the view behavior.
 class ProjectsViewSet(viewsets.ModelViewSet):
