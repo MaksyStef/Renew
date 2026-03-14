@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Project(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True, null=False, blank=False, primary_key=True)
     details = models.TextField()
     imageSrc = models.URLField(max_length=200)
 
