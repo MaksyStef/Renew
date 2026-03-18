@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Footer from '../components/Footer.tsx'
 import PageWrapper from '../components/PageWrapper.tsx'
@@ -19,7 +19,6 @@ function batchCreateProjectCells (projects: { title: string; details: string; im
 }
 
 export default function Home(props: any): JSX.Element {
-  const projectsContainerRef = useRef<HTMLDivElement>(null)
   const [apiAddress, setApiAddress] = props.apiAddress ? useState(props.apiAddress) : useState("http://localhost:8000/api")
   const [projects, setProjects] = useState<{ title: string; details: string; imageSrc: string; url: string }[]>([])
 
@@ -40,7 +39,7 @@ export default function Home(props: any): JSX.Element {
         <div className="d-flex w-100 justify-content-center">
           <h1 className="display-1">Projects</h1>
         </div>
-        <div ref={projectsContainerRef} className="row w-100 mt-4 g-4 text-center">
+        <div className="row w-100 mt-4 g-4 text-center">
           {/* Project cells are placed here */}
           { batchCreateProjectCells(projects) }
         </div>
