@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Import Components
 import LoadScreen from './pages/LoadScreen.tsx'
+import ProjectDetails from './pages/ProjectDetails.tsx'
 
 // Lazy Import Components
 const Home = lazy(() => import('./pages/Home.tsx'))
@@ -28,6 +29,7 @@ export default class App extends Component {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:pk" element={<ProjectDetails />} />
           </Routes>
         </Router>
       </>
