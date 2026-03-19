@@ -7,7 +7,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
         model = Project
         fields = ['title', 'details', 'imageSrc', 'url']
 
-# ViewSets define the view behavior.
+# ViewSetsdefine the view behavior.
 class ProjectsViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectsSerializer

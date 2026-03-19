@@ -3,6 +3,6 @@ from .models import Project
 
 # Register your models here.
 class ProjectAdmin(admin.ModelAdmin):
-  exclude = ('url',)
+    pass
     
 admin.site.register(Project, ProjectAdmin)
