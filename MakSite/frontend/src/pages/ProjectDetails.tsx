@@ -26,11 +26,16 @@ export default function ProjectDetails(props: any): JSX.Element {
   return (
     <>
       <PageWrapper className="page-wrapper_snap">
-        <div className="container d-flex flex-column align-items-center">
+        <div className="container w-100 vh-100 d-flex flex-column justify-content-center align-items-center">
           <h1 className="display-1">{project?.title}</h1>
-          <div className="image-container">
-            <img src={project?.imageSrc} alt={project?.title} />
+          <div className="image-container w-75">
+            <img className="w-100" src={project?.imageSrc} alt={project?.title} />
           </div>
+        </div>
+        <div className="w-100 vh-100 d-flex flex-column justify-content-center align-items-center">
+          <iframe src={project?.url} className="w-100 h-100" />
+        </div>
+        <div className="container w-100 vh-100 d-flex flex-column justify-content-center align-items-center">
           <div className="text-container">
             <p>{project?.details}</p>
           </div>
