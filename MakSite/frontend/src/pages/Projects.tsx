@@ -43,8 +43,7 @@ export default function Home(props: any): JSX.Element {
           {/* Project cells are placed here */}
           { batchCreateProjectCells(projects) }
         </div>
-        <div style={{flex: "1 1 auto"}} className="separator" />
-        <Footer className="pb-0" />
+        <Footer separator={true} className="pb-0" />
       </PageWrapper>
     </>
   )

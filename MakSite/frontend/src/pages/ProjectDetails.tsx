@@ -35,8 +35,7 @@ export default function ProjectDetails(props: any): JSX.Element {
             <p>{project?.details}</p>
           </div>
         </div>
-        <div style={{flex: "1 1 auto"}} className="separator" />
-        <Footer />
+        <Footer separator={true} />
       </PageWrapper>
     </>
   )
