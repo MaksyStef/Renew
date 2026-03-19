@@ -3,14 +3,13 @@ from zipfile import ZipFile
 from django.conf import settings
 from pathlib import Path
 
-from ..models import Media
-
+import api.models
 
 MEDIA_ROOT: Path = settings.MEDIA_ROOT
 
 
 class BaseManager(ABC):
-  media_object: Media = ...
+  media_object: api.models.Media = ...
 
   @abstractmethod
   def unpack(self, data):
@@ -18,12 +17,10 @@ class BaseManager(ABC):
 
 
 class ZipManager(BaseManager):
-    media_object: Media = ...
-    unpacked_path: Path = MEDIA_ROOT / "unpacked" / str(media_object.pk)
 
-
-    def __init__(self, media_object: Media):
-      self.media_object = media_object
+    def __init__(self, media_object: api.models.Media):
+        self.media_object = media_object
+        self.unpacked_path: Path = MEDIA_ROOT / "unpacked" / str(media_object.pk)
 
 
     def unpack(self):
