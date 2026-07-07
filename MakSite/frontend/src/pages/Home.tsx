@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { OverlayTrigger, Popover } from 'react-bootstrap'
@@ -13,6 +13,7 @@ export default function Home(): JSX.Element {
   const contactMeRef = useRef<HTMLButtonElement>(null);
   const curtainsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [scrollState, setScrollState] = useState(false);
   
   const contactMePopover = (
     <Popover id="popover-contact-me">
@@ -28,20 +29,24 @@ export default function Home(): JSX.Element {
     window.navigator.clipboard.writeText("maksistef@gmail.com");
   }
 
-  function curtainsEvent() {
+  function curtainsEvent(e: React.WheelEvent<HTMLDivElement>) {
+    e.preventDefault();
+    if (scrollState) { return; }
+
+    setScrollState(true);
+    e.view.document.body.scrollBy({
+      top: window.innerHeight / 2,
+    });
     curtainsRef.current?.classList.add('active');
     setTimeout(() => {
-      wrapperRef.current?.style.setProperty('overflow', 'hidden');
-    }, 1000);
-    setTimeout(() => {
       curtainsRef.current?.classList.remove('active');
-      wrapperRef.current?.style.removeProperty('overflow');
+      setScrollState(false);
     }, 1500);
   }
 
   return (
     <>
-      <PageWrapper className="page-wrapper_snap" onScroll={() => { curtainsEvent() }} ref={wrapperRef} >
+      <PageWrapper className="page-wrapper_snap" onScroll={curtainsEvent} ref={wrapperRef} >
         <div className="w-75 vh-100 d-flex flex-column justify-content-center align-items-center">
           <h1 className="text-center display-1"><strong>Full Stack Web Developer</strong></h1>
         </div>
