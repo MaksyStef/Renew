@@ -12,3 +12,52 @@
    --bs-popover-arrow-border: #21f556;
    --bs-popover-bg: #21f556;
 }
+
+.curtains {
+   width: 100vw;
+   height: 100vh;
+   z-index: -1;
+   position: fixed !important;
+   top: 0;
+   left: 0;
+   translate: all 0.5s ease-in-out;
+
+   &::after, &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #636363;
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+   }
+   &::after {
+      translate: -100% 100%;
+      transform: rotate(0deg);
+   }
+   &::before {
+      translate: 100% -100%;
+      transform: rotate(180deg);
+   }
+   &.active {
+      z-index: 9999;
+      &::after, &::before {
+         animation: curtain 1s ease-in-out forwards;
+      }
+      &::after {
+         transform: rotate(0deg) translate(8px, -8px);
+      }
+   }
+}
+
+
+@keyframes curtain {
+   0% {
+   }
+   25% {
+      translate: 0 0;
+   }
+   60% {
+      translate: 0 0;
+   }
+   100% {
+   }
+}
