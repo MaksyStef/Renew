@@ -1,6 +1,8 @@
 import type { JSX } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 
+import { OverlayTrigger, Popover } from 'react-bootstrap'
 import Footer from '../components/Footer.tsx'
 import PageWrapper from '../components/PageWrapper.tsx'
 
@@ -8,6 +10,23 @@ import '../styles/home.scss'
 
 
 export default function Home(): JSX.Element {
+  const contactMeRef = useRef<HTMLButtonElement>(null);
+  
+  function onContactMe (e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    if (!contactMeRef.current) {
+      throw new Error("Contact Me button ref is not set");
+    }
+    window.navigator.clipboard.writeText("maksistef@gmail.com");
+  }
+
+  const contactMePopover = (
+    <Popover id="popover-contact-me">
+      <span>Email copied to the clipboard!</span>
+    </Popover>
+      
+  )
+
   return (
     <>
       <PageWrapper className="page-wrapper_snap">
@@ -24,7 +43,9 @@ export default function Home(): JSX.Element {
           <h1 className="text-center display-1"><strong><Link to="/projects">Projects</Link></strong></h1>
         </div>
         <div className="w-75 vh-100 d-flex flex-column justify-content-center align-items-center">
-          <button className="btn btn-primary btn-lg p-2 fs-1 fw-bold" type="submit">Contact Me</button>
+          <OverlayTrigger overlay={contactMePopover} placement="top" trigger="click" rootClose>
+            <button className="btn btn-primary btn-lg p-2 fs-1 fw-bold" onClick={onContactMe} ref={contactMeRef} type="button">Contact Me</button>
+          </OverlayTrigger>
         </div>
         <Footer />
       </PageWrapper>
