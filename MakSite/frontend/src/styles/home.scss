@@ -20,7 +20,7 @@
    position: fixed !important;
    top: 0;
    left: 0;
-   translate: all 0.5s ease-in-out;
+   transition: all 0.5s ease-in-out;
 
    &::after, &::before {
       content: "";
@@ -28,6 +28,7 @@
       inset: 0;
       background: #636363;
       clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+      transition: all 0.5s ease-in-out;
    }
    &::after {
       translate: -100% 100%;
@@ -40,24 +41,10 @@
    &.active {
       z-index: 9999;
       &::after, &::before {
-         animation: curtain 1s ease-in-out forwards;
+         translate: 0 0;
       }
       &::after {
-         transform: rotate(0deg) translate(8px, -8px);
+         transform: rotate(0deg) translate(1px, -1px);
       }
-   }
-}
-
-
-@keyframes curtain {
-   0% {
-   }
-   25% {
-      translate: 0 0;
-   }
-   60% {
-      translate: 0 0;
-   }
-   100% {
    }
 }
