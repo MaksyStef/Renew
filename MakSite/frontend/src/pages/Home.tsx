@@ -13,7 +13,7 @@ export default function Home(): JSX.Element {
   const contactMeRef = useRef<HTMLButtonElement>(null);
   const curtainsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [scrollState, setScrollState] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
   
   const contactMePopover = (
     <Popover id="popover-contact-me">
@@ -31,16 +31,19 @@ export default function Home(): JSX.Element {
 
   function curtainsEvent(e: React.WheelEvent<HTMLDivElement>) {
     e.preventDefault();
-    if (scrollState) { return; }
+    console.log('fire scroll by -1');
+    e.currentTarget.scrollBy({ top: -1, behavior: 'smooth' });
+    if (scrolling) { return; }
 
-    setScrollState(true);
-    e.view.document.body.scrollBy({
-      top: window.innerHeight / 2,
-    });
+    setScrolling(true);
     curtainsRef.current?.classList.add('active');
     setTimeout(() => {
+      e.currentTarget?.scrollBy({ top: window.innerHeight, behavior: 'instant' });
+      console.log('attempt to scroll by: ', window.innerHeight);
+    }, 500);
+    setTimeout(() => {
       curtainsRef.current?.classList.remove('active');
-      setScrollState(false);
+      setScrolling(false);
     }, 1500);
   }
 
