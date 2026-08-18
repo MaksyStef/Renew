@@ -18,21 +18,39 @@ $mobile-text-size: 14px;
   padding: 0;
   box-sizing: border-box;
 }
-body, html, #root {
+
+body,
+html,
+#root {
   width: 100vw;
   height: 100vh;
   background-color: $bgc;
   font-family: "Open Sans", sans-serif;
   color: $text-light;
   font-size: $default-text-size;
+
+  footer {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    bottom: 0;
+    left: 0;
+
+    opacity: .85;
+    z-index: 999;
+  }
 }
+
 .page-wrapper {
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+
   &_snap {
     position: absolute;
     min-height: none;
@@ -40,35 +58,105 @@ body, html, #root {
     overflow-x: hidden;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    
-    > div {
-      position: relative;
-      flex: 1 0 100vh;
-      scroll-snap-align: start;
-    }
   }
 }
 
+section.section {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+
+  .outer,
+  .inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  &_1 {
+    .bg {
+      background-image: url("/images/landing1.jpg");
+    }
+  }
+
+  &_2 {
+    .bg {
+      background-image: url("/images/landing2.jpg");
+    }
+  }
+
+  &_3 {
+    .bg {
+      background-image: url("/images/landing3.jpg");
+    }
+  }
+
+
+  &_4 {
+    .bg {
+      background-image: url("/images/landing4.jpg");
+    }
+  }
+
+  &_5 {
+    .bg {
+      background-image: url("/images/landing5.jpg");
+    }
+  }
+
+  .section-header {
+    z-index: 999;
+  }
+}
 
 @include media-breakpoint-down(sm) {
-  body, html {
+
+  body,
+  html {
     font-size: $mobile-text-size;
   }
 }
+
 @include media-breakpoint-down(md) {
-  body, html {
-  }
+
+  body,
+  html {}
 }
+
 @include media-breakpoint-down(lg) {
-  body, html {
+
+  body,
+  html {
     font-size: $default-text-size;
   }
 }
+
 @include media-breakpoint-down(xl) {
-  body, html {
-  }
+
+  body,
+  html {}
 }
+
 @include media-breakpoint-down(xxl) {
-  body, html {
-  }
+
+  body,
+  html {}
 }

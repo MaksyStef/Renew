@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default function Footer(props: any): JSX.Element {
   return (
     <>
-      { props.separator ? <div style={{flex: "1 1 auto"}} className="separator" /> : null }
       <footer {...props} 
       className={
           // if classname is provided, add it to the default classname, otherwise just use the default classname
