@@ -1,50 +1,145 @@
+section.section {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+
+  .outer,
+  .inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  &_1 {
+    .bg {
+      background-image: url("/images/landing1.jpg");
+    }
+  }
+
+  &_2 {
+    .bg {
+      background-image: url("/images/landing2.jpg");
+    }
+  }
+
+  &_3 {
+    .bg {
+      background-image: url("/images/landing3.jpg");
+    }
+    .header-link {
+      &::after {
+         content: "About Me";
+      }
+    }
+   }
+   
+   
+   &_4 {
+      .bg {
+         background-image: url("/images/landing4.jpg");
+      }
+      .header-link {
+        &::after {
+           content: "Projects";
+        }
+      }
+  }
+
+  &_5 {
+    .bg {
+      background-image: url("/images/landing5.jpg");
+    }
+  }
+
+  .section-header {
+    z-index: 999;
+  }
+}
+
+.header-link {
+   --hyperlink-color: #fff;
+   --hyperlink-color-after: #fff;
+   color: var(--hyperlink-color);
+   text-decoration: none;
+   position: relative;
+   transition: all .2s ease-out;
+   z-index: 2;
+
+   &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: var(--hyperlink-color);
+      bottom: 0;
+   }
+   &::after {
+      transition: all .2s ease-out .1s;
+      translate: 0 0;
+      position: absolute;
+      display: block;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+      width: max-content;
+      height: auto;
+      color: var(--hyperlink-color-after);
+      z-index: 1;
+   }
+
+   &:hover, &:active, &:focus {
+      --hyperlink-color: #33cc5a;
+      --hyperlink-color-after: #1bb441;
+      font-weight: bold;
+
+      &::after {
+         translate: calc(-50% - 3px) -50%;
+      }
+   } 
+}
+
 #popover-contact-me {
-   background-color: #21f556;
-   color: #212529;
-   border: 1px solid #21f556;
+   background-color: #33cc5a;
+   color: #fff;
+   border: 1px solid #33cc5a;
    border-radius: 0.25rem;
-   padding: 0.5rem 1rem;
+   padding: 0.25rem .75rem;
    font-size: 1rem;
    font-weight: 500;
    text-align: center;
    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+   margin-bottom: 4px;
 
-   --bs-popover-arrow-border: #21f556;
-   --bs-popover-bg: #21f556;
+   --bs-popover-arrow-border: #33cc5a;
+   --bs-popover-bg: #33cc5a;
 }
 
-.curtains {
-   width: 100vw;
-   height: 100vh;
-   z-index: -1;
-   position: fixed !important;
-   top: 0;
-   left: 0;
-   transition: all 0.5s ease-in-out;
-
-   &::after, &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: #636363;
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-      transition: all 0.5s ease-in-out;
-   }
-   &::after {
-      translate: -100% 100%;
-      transform: rotate(0deg);
-   }
-   &::before {
-      translate: 100% -100%;
-      transform: rotate(180deg);
-   }
-   &.active {
-      z-index: 9999;
-      &::after, &::before {
-         translate: 0 0;
-      }
-      &::after {
-         transform: rotate(0deg) translate(1px, -1px);
+body:has(.popover.show) {
+   .section {
+      &_5 {
+         .btn {
+            background-color: #33cc5a;
+            border-color: #33cc5a;
+         }
       }
    }
 }
