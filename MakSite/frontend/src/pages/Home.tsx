@@ -122,7 +122,12 @@ export default function Home(): JSX.Element {
           <div className="outer">
             <div className="inner">
               <div className="bg">
-                <h1 className="text-center display-1"><strong><Link className="header-link" to="/about" header-content="About Me">About Me</Link></strong></h1>
+                <h1>
+                  <Link className="header-link" to="/about" data-text="About Me">
+                    <span className="actual-text">&nbsp;About Me&nbsp;</span>
+                    <span aria-hidden="true" className="hover-text">&nbsp;About Me&nbsp;</span>
+                  </Link>
+                </h1>
               </div>
             </div>
           </div>
@@ -131,7 +136,12 @@ export default function Home(): JSX.Element {
           <div className="outer">
             <div className="inner">
               <div className="bg">
-                <h1 className="text-center display-1"><strong><Link className="header-link" to="/projects" header-content="Projects">Projects</Link></strong></h1>
+                <h1>
+                  <Link className="header-link" to="/projects" data-text="Projects">
+                    <span className="actual-text">&nbsp;Projects&nbsp;</span>
+                    <span aria-hidden="true" className="hover-text">&nbsp;Projects&nbsp;</span>
+                  </Link>
+                </h1>
               </div>
             </div>
           </div>
