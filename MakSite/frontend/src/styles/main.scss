@@ -61,6 +61,41 @@ html,
   }
 }
 
+section.section {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+
+  .outer,
+  .inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .section-header {
+    z-index: 999;
+  }
+}
+
 .header-link-glowstick {
   --border-right: 6px;
   --text-stroke-color: rgba(255, 255, 255, 0.6);

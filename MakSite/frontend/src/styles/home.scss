@@ -1,33 +1,4 @@
 section.section {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  position: fixed;
-  visibility: hidden;
-
-  .outer,
-  .inner {
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
-  }
-
-  .bg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    background-size: cover;
-    background-position: center;
-
-  }
-
   &_1 {
     .bg {
       background-image: url("/images/landing1.jpg");
@@ -44,23 +15,19 @@ section.section {
     .bg {
       background-image: url("/images/landing3.jpg");
     }
-   }
-   
-   
-   &_4 {
-      .bg {
-         background-image: url("/images/landing4.jpg");
-      }
+  }
+
+
+  &_4 {
+    .bg {
+      background-image: url("/images/landing4.jpg");
+    }
   }
 
   &_5 {
     .bg {
       background-image: url("/images/landing5.jpg");
     }
-  }
-
-  .section-header {
-    z-index: 999;
   }
 }
 
