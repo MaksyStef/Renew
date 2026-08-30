@@ -1,8 +1,6 @@
-@import "./main.scss";
-
-
 // === attempt 3 ===
 .about_grid {
+  padding: 3rem 0;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   img {
@@ -70,6 +68,11 @@
 }
 
 .section {
+  &_1 {
+    .bg {
+      background-image: url("/images/about1.jpg");
+    }
+  }
   &_2 {
     .bg {
       background-image: url("/images/landing4.jpg");
