@@ -209,14 +209,14 @@ export default function RollingShapesSection({
               min-width: 28px;
               aspect-ratio: 1 / 1;
               margin: 0 3vw;
-              opacity: 0.35;
+              opacity: 0.75;
               will-change: transform;
             }
 
             .roll-shape__svg {
               width: 100%;
               height: 100%;
-              fill: #ffb86b;
+              fill: #ffcd97;
               display: block;
               z-index: -2;
             }
