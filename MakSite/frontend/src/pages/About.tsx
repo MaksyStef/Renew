@@ -149,11 +149,11 @@ export default function About(): JSX.Element {
                           <img src="https://placehold.co/400x600" />
                         </div>
                         <div className="text_1 text">
-                          <h1 className="display-4 fs-2"><strong>About Me</strong></h1>
-                          <h2 className="display-6 fs-4"><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem soluta facilis inventore quibusdam repellendus accusamus voluptate beatae vel cupiditate impedit atque, at mollitia</strong></h2>
+                          <h1 className="display-1"><strong>About Me</strong></h1>
+                          <h2 className="display-6 fs-1"><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</strong></h2>
                         </div>
                         <div className="text_2 text align-bottom pt-4 text-end">
-                          <h2 className="display-6 fs-4"><strong>Aliquid voluptas iure officia ea officiis necessitatibus saepe corporis sapiente aperiam laudantium in accusamus, iusto, doloremque reprehenderit dolor dolore iusto accusamus ipsa</strong></h2>
+                          <h2 className="display-6 fs-1"><strong>Aliquid voluptas iure officia ea officiis necessitatibus.</strong></h2>
                         </div>
                       </div>
                     </div>

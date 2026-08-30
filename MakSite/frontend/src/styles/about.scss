@@ -3,6 +3,8 @@
   padding: 3rem 0;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  font-family: "JUST Sans Outline Bold", Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
   img {
     vertical-align: none;
   }
@@ -65,9 +67,12 @@
       width: 200px;
     }
   }
+  strong {
+    font-weight: 700;
+  }
 }
 
-.section {
+section.section {
   &_1 {
     .bg {
       background-image: url("/images/about1.jpg");

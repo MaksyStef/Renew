@@ -10,7 +10,14 @@ $mobile-text-size: 14px;
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-
+@font-face {
+  font-family: "JUST Sans Outline";
+  src: url("/fonts/JUST Sans Outline Regular.otf");
+}
+@font-face {
+  font-family: "JUST Sans Outline Bold";
+  src: url("/fonts/JUST Sans Outline ExBold.otf");
+}
 
 /* =============== Styles =============== */
 * {
