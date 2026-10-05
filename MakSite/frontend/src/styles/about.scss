@@ -1,3 +1,5 @@
+@import "main.scss";
+
 // === attempt 3 ===
 .about_grid {
   padding: 3rem 0;
@@ -75,7 +77,8 @@
 section.section {
   &_1 {
     .bg {
-      background-image: url("/images/about1.jpg");
+      // background-image: url("/images/about1.jpg");
+      background-color: $bgc;
     }
   }
   &_2 {
