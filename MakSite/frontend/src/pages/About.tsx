@@ -8,7 +8,6 @@ import { Observer } from 'gsap/Observer'
 import Footer from "../components/Footer.tsx"
 import PageWrapper from "../components/PageWrapper.tsx"
 import AnimatedButton from "../components/AnimatedButton.tsx"
-import RollingShapesSection from "../components/RollingShapesSection.tsx"
 
 import "../styles/about.scss"
 
@@ -53,47 +52,6 @@ export default function About(): JSX.Element {
       }, 0)
         .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
       currentIndex = index
-
-      if (index == 0) {
-        let aboutImages = gsap.utils.toArray(".about_grid img")
-        aboutImages.forEach((img: any, i) => {
-
-          switch (i) {
-            case 0:
-              tl.from(img, { alpha: 0, scale: 0.5, duration: .5, delay: .1 })
-              break;
-            case 1:
-              tl.from(img, { alpha: 0, scale: 0.5, yPercent: -50, duration: .5, delay: .1 })
-              break;
-            case 2:
-              tl.from(img, { alpha: 0, scale: 0.5, xPercent: -50, duration: .5, delay: .1 })
-              break;
-            case 3:
-              tl.from(img, { alpha: 0, scale: 0.5, yPercent: 50, duration: .5, delay: .1 })
-              break;
-            case 4:
-              tl.from(img, { alpha: 0, scale: 0.5, xPercent: 50, duration: .5, delay: .1 })
-              break;
-            default:
-              break;
-          }
-        })
-        
-        let aboutText = gsap.utils.toArray(".about_grid .text")
-        aboutText.forEach((div: any, i) => {
-
-          switch (i) {
-            case 0:
-              tl.from(div, { alpha: 0, yPercent: -50, duration: .5, delay: .1 })
-              break;
-            case 1:
-              tl.from(div, { alpha: 0, yPercent: 50, duration: .5, delay: .1 })
-              break;
-            default:
-              break;
-          }
-        })
-      }
     }
 
     Observer.create({
@@ -129,36 +87,33 @@ export default function About(): JSX.Element {
           <div className="outer">
             <div className="inner">
               <div className="bg">
-                <RollingShapesSection>
-                  <div className="w-75 vh-100 d-flex flex-column justify-content-center align-items-center">
-                    <div className="container w-100 h-100">
-                      <div className="about_grid d-grid w-100 h-100">
-                        <div className="w-100 h-100 d-flex image_center">
-                          <img src="https://placehold.co/400x400" />
+                <div className="w-75 vh-100 d-flex flex-column justify-content-center align-items-center">
+                  {/* inspiration: https://shorturl.at/4IsRF */}
+                  <div className="photo-card">
+                    <div className="photo-card__left">
+                      <div className="photo-card__background">
+                        <div className="image-container">
+                          <img src="/images/about_1.svg" alt="background" />
                         </div>
-                        <div className="w-100 h-100 d-flex image_top">
-                          <img src="https://placehold.co/600x400" />
+                        <div className="text-container">
+                          <span>WEB DEVELOPER</span>
                         </div>
-                        <div className="w-100 h-100 d-flex  image_left">
-                          <img src="https://placehold.co/400x600" />
+                      </div>
+                      <div className="photo-card__foreground">
+                        <div className="image-container">
+                          <img src="" alt="" />
                         </div>
-                        <div className="w-100 h-100 d-flex image_bottom">
-                          <img src="https://placehold.co/600x400" />
-                        </div>
-                        <div className="w-100 h-100 d-flex image_right">
-                          <img src="https://placehold.co/400x600" />
-                        </div>
-                        <div className="text_1 text">
-                          <h1 className="display-1"><strong>About Me</strong></h1>
-                          <h2 className="display-6 fs-1"><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</strong></h2>
-                        </div>
-                        <div className="text_2 text align-bottom pt-4 text-end">
-                          <h2 className="display-6 fs-1"><strong>Aliquid voluptas iure officia ea officiis necessitatibus.</strong></h2>
+                        <div className="text-container">
+                          <span>frontend</span>
+                          <span>deployment</span>
+                          <span>backend</span>
                         </div>
                       </div>
                     </div>
+                    <div className="photo-card__right">
+                    </div>
                   </div>
-                </RollingShapesSection>
+                </div>
               </div>
             </div>
           </div>
