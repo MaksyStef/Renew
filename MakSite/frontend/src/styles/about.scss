@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-@import "main.scss";
-
-// === attempt 3 ===
-.about_grid {
-  padding: 3rem 0;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  font-family: "JUST Sans Outline Bold", Arial, Helvetica, sans-serif;
-  letter-spacing: 3px;
-  img {
-    vertical-align: none;
-  }
-=======
 @import "./main.scss";
->>>>>>> 604d6961ef1d366a2375476fd80fa64f966cccf8
 
 .photo-card {
   display: flex;
@@ -83,10 +68,6 @@
 .page-wrapper_about .section {
   &_1 {
     .bg {
-<<<<<<< HEAD
-      // background-image: url("/images/about1.jpg");
-=======
->>>>>>> 604d6961ef1d366a2375476fd80fa64f966cccf8
       background-color: $bgc;
     }
   }
