@@ -82,16 +82,16 @@ export default function About(): JSX.Element {
 
   return (
     <>
-      <PageWrapper className="page-wrapper_snap" ref={wrapperRef}>
+      <PageWrapper className="page-wrapper_snap page-wrapper_about" ref={wrapperRef}>
         <section className="section section_1">
           <div className="outer">
             <div className="inner">
               <div className="bg">
-                <div className="w-75 vh-100 d-flex flex-column justify-content-center align-items-center">
+                <div className="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center">
                   {/* inspiration: https://shorturl.at/4IsRF */}
                   <div className="photo-card">
                     <div className="photo-card__left">
-                      <div className="photo-card__background">
+                      <div className="background">
                         <div className="image-container">
                           <img src="/images/about_1.svg" alt="background" />
                         </div>
@@ -99,9 +99,9 @@ export default function About(): JSX.Element {
                           <span>WEB DEVELOPER</span>
                         </div>
                       </div>
-                      <div className="photo-card__foreground">
+                      <div className="foreground">
                         <div className="image-container">
-                          <img src="" alt="" />
+                          <img src="/images/figure.png" alt="Man in a hoodie" />
                         </div>
                         <div className="text-container">
                           <span>frontend</span>

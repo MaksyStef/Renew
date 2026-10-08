@@ -100,7 +100,7 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-      <PageWrapper className="page-wrapper_snap" ref={wrapperRef} >
+      <PageWrapper className="page-wrapper_snap page-wrapper_home" ref={wrapperRef} >
         <section className="section section_1">
           <div className="outer">
             <div className="inner">
