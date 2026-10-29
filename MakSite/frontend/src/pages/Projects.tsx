@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import Footer from '../components/Footer.tsx'
 import PageWrapper from '../components/PageWrapper.tsx'
-import ProjectCell from '../components/PrjectCell.tsx'
+import ProjectCell from '../components/ProjectCell.tsx'
 
 import '../styles/projects.scss'
 
