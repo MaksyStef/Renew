@@ -32,28 +32,38 @@
 }
 
 #popover-contact-me {
-   background-color: #33cc5a;
-   color: #fff;
-   border: 1px solid #33cc5a;
-   border-radius: 0.25rem;
-   padding: 0.25rem .75rem;
-   font-size: 1rem;
-   font-weight: 500;
-   text-align: center;
-   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-   margin-bottom: 4px;
+  --bs-popover-font-size: 1rem;
+  --bs-popover-bg: #C5E5E4;
+  --bs-popover-border-width: 2px;
+  --bs-popover-border-color: #fff;
+  
+  transition: translate .4s;
+  translate: 0 1px;
+  color: #1f387e;
+  padding: 0.5rem .75rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: lowercase;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-bottom: 4px;
 
-   --bs-popover-arrow-border: #33cc5a;
-   --bs-popover-bg: #33cc5a;
-}
+  .img-container {
+    width: 24px;
+    aspect-ratio: 1/1;
 
-body:has(.popover.show) {
-   .section {
-      &_5 {
-         .btn {
-            background-color: #33cc5a;
-            border-color: #33cc5a;
-         }
+    img,svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &_2 {
+      img,svg {
+        scale: 1.25;
       }
-   }
+    }
+  }
+
+  &.show {
+    translate: 0 -4px;
+  }
 }

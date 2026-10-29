@@ -105,8 +105,8 @@ section.section {
 
 .header-link-glowstick {
   --border-right: 6px;
-  --text-stroke-color: rgba(255, 255, 255, 0.6);
-  --animation-color: #37FF8B;
+  --text-stroke-color: rgba(7, 1, 1, 0.6);
+  --animation-color: #c5e5e4;
   --fs-size: 2em;
 
   margin: 0;
@@ -232,7 +232,7 @@ section.section {
 
   &:active {
     scale: 0.95;
-    box-shadow: 0 0 0 4px greenyellow;
+    box-shadow: 0 0 0 4px --animation-color;
   }
 }
 
