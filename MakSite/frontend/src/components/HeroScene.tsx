@@ -9,7 +9,7 @@ import {
 } from "@react-three/rapier"
 import { useGLTF, Clone } from "@react-three/drei"
 import { useEffect, useMemo, useRef, type ReactNode } from "react"
-import { dragState } from "../states/dragState"
+import { dragState } from "../states/dragState.ts"
 
 const MODEL_URL = "/models/letters/title.glb"
 useGLTF.preload(MODEL_URL)
