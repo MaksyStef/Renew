@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { useRef, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap/gsap-core'
 import { useGSAP } from '@gsap/react'
@@ -10,7 +10,11 @@ import AnimatedButton from '../components/AnimatedButton.tsx'
 import Footer from '../components/Footer.tsx'
 import PageWrapper from '../components/PageWrapper.tsx'
 
+const HeroScene = lazy(() => import("../components/HeroScene"))
+
 import '../styles/home.scss'
+
+import { dragState } from "../states/dragState.ts"
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(Observer)
@@ -19,6 +23,8 @@ gsap.registerPlugin(Observer)
 export default function Home(): JSX.Element {
   const contactMeRef = useRef<HTMLButtonElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const [heroActive, setHeroActive] = useState(true)
 
   const contactMePopover = (
     <Popover id="popover-contact-me">
@@ -68,6 +74,7 @@ export default function Home(): JSX.Element {
     gsap.set(innerWrappers, { yPercent: -100 })
 
     function gotoSection(index: number, direction: number) {
+      const currentIndexAtStart = currentIndex
       index = wrap(index); // make sure it's valid
       animating = true;
       let fromTop = direction === -1,
@@ -76,11 +83,15 @@ export default function Home(): JSX.Element {
           defaults: { duration: 1.25, ease: "power1.inOut" },
           onComplete: () => animating = false
         })
+
+      if (index === 0) setHeroActive(true)
+
       if (currentIndex >= 0) {
         // This runs on every run after the initial one
         gsap.set(sections[currentIndex], { zIndex: 0 });
         tl.to(images[currentIndex], { yPercent: -15 * dFactor })
-          .set(sections[currentIndex], { autoAlpha: 0 });
+          .set(sections[currentIndex], { autoAlpha: 0 })
+          .call(() => { if (currentIndexAtStart === 0) setHeroActive(false) });
       }
       gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
       tl.fromTo([outerWrappers[index], innerWrappers[index]], {
@@ -94,7 +105,7 @@ export default function Home(): JSX.Element {
     }
 
     Observer.create({
-      type: "wheel,touch,pointer",
+      type: "wheel,touch",
       wheelSpeed: -1,
       onDown: () => !animating && gotoSection(currentIndex - 1, -1),
       onUp: () => !animating && gotoSection(currentIndex + 1, 1),
@@ -125,8 +136,13 @@ export default function Home(): JSX.Element {
         <section className="section section_1">
           <div className="outer">
             <div className="inner">
-              <div className="bg">
-                <h1 className="text-center display-1"><strong>Full Stack Web Developer</strong></h1>
+              <div className="bg" />
+              <div className="content">
+                {heroActive && (
+                  <Suspense fallback={null}>
+                    <HeroScene />
+                  </Suspense>
+                )}
               </div>
             </div>
           </div>
