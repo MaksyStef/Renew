@@ -7,7 +7,7 @@ from .utils.managers import ZipManager
 class Project(models.Model):
     title = models.CharField(max_length=50)
     details = models.TextField()
-    imageSrc = models.URLField(max_length=200)
+    thumbnail = models.ImageField(upload_to="images/thumbnails/")
 
     @property
     def url(self):
