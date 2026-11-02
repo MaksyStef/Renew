@@ -10,6 +10,7 @@ import PageWrapper from "../components/PageWrapper.tsx"
 import AnimatedButton from "../components/AnimatedButton.tsx"
 
 import "../styles/about.scss"
+import GlowingLink from "../components/GlowingLink.tsx"
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(Observer)
@@ -163,13 +164,13 @@ export default function About(): JSX.Element {
                     <div className="photo-card__left">
                       <div className="background">
                         <div className="image-container">
-                          <img src="/images/about_1.svg" alt="background" />
+                          {/* <img src="/images/about_1.svg" alt="background" /> */}
                         </div>
                         <div className="text-container" data-reveal-priority="2" data-parallax-intensity=".5">
                           <span>WEB DEVELOPER</span>
                         </div>
                       </div>
-                      <div className="foreground" data-reveal-priority="1">
+                      <div className="foreground" data-reveal-priority="0">
                         <div className="image-container" data-parallax-intensity=".15">
                           <img src="/images/figure.png" alt="Man in a hoodie" />
                         </div>
@@ -182,9 +183,8 @@ export default function About(): JSX.Element {
                     </div>
                     <div className="photo-card__right">
                       <div className="header">
-                        <a href="#" className="link" data-reveal-priority="1">Link</a>
-                        <a href="#" className="link" data-reveal-priority="1">Link</a>
-                        <a href="#" className="link" data-reveal-priority="0">Link</a>
+                        <GlowingLink data-reveal-priority="1" url="/dyploma" text={"Education"} />
+                        <GlowingLink data-reveal-priority="1" url="/projects" text={"Portfolio"} />
                       </div>
                       <div className="body">
                         <span className="text text_1" data-reveal-priority="1" data-parallax-intensity=".25">Python</span>

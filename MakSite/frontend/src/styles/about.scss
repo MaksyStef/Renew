@@ -3,11 +3,9 @@
 .photo-card {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  aspect-ratio: 5/2;
-  border: 3px solid #070019;
-  border-radius: 24px;
-  background-color: $bgc-shapes;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
   overflow: hidden;
 
   &__left, &__right {
@@ -15,7 +13,10 @@
     overflow: hidden;
     position: relative;
   }
+
   &__left {
+    -webkit-text-stroke: 1px rgb(42, 40, 56);
+    font-weight: bold;
 
     .background {
       position: absolute;
@@ -39,7 +40,7 @@
       }
       .text-container {
         position: absolute;
-        font-size: 2.8rem;
+        font-size: 4rem;
         font-weight: bold;
         top: 20%;
         left: 10%;
@@ -54,9 +55,9 @@
         position: absolute;
         bottom: -10px;
         left: 50%;
-        translate: -50% 0;
         height: 90%;
         img {
+          translate: -50% 0;
           height: 100%;
         }
       }
@@ -66,7 +67,7 @@
         height: 100%;
 
         .text {
-          font-size: 1.5rem;
+          font-size: 2.5rem;
           position: absolute;
           &_1 {
             left: 55%;
@@ -75,7 +76,7 @@
           &_2 {
             left: 60%;
             top: 40%;
-            font-size: 1.8rem;
+            font-size: 2.8rem;
           }
           &_3 {
             left: 20%;
@@ -96,9 +97,8 @@
       font-display: row;
       justify-content: space-around;
 
-      .link {
-        display: flex;;
-        margin: auto;
+      .header-link-glowstick {
+        font-weight: bold;
       }
     }
     .body {
@@ -155,8 +155,8 @@
         }
         &_9 {
           font-size: .85;
-          bottom: 2rem;
-          left: 15%;
+          bottom: 40%;
+          left: 5%;
         }
         &_10 {
           left: 18.5%;
@@ -200,6 +200,7 @@
   &_1 {
     .bg {
       background-color: $bgc;
+      background: linear-gradient(243deg,rgb(42, 40, 56) 0%, rgba(12, 16, 22, 1) 44%);
     }
   }
   &_2 {

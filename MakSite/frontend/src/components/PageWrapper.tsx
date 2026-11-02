@@ -1,7 +1,7 @@
-import type { ComponentPropsWithoutRef, ReactElement } from "react"
+import type { ComponentPropsWithRef, ReactElement } from "react"
 
 
-type PageWrapperProps = ComponentPropsWithoutRef<"div">;
+type PageWrapperProps = ComponentPropsWithRef<"div">;
 
 export default function PageWrapper({ className = "", children, ...rest }: PageWrapperProps): ReactElement {
   return (

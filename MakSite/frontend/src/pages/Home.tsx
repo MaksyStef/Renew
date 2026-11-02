@@ -9,6 +9,7 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import AnimatedButton from '../components/AnimatedButton.tsx'
 import Footer from '../components/Footer.tsx'
 import PageWrapper from '../components/PageWrapper.tsx'
+import GlowingLink from '../components/GlowingLink.tsx'
 
 const HeroScene = lazy(() => import("../components/HeroScene"))
 
@@ -161,10 +162,7 @@ export default function Home(): JSX.Element {
             <div className="inner">
               <div className="bg">
                 <h1>
-                  <Link className="header-link-glowstick" to="/about" data-text="About Me">
-                    <span className="actual-text">&nbsp;About Me&nbsp;</span>
-                    <span aria-hidden="true" className="hover-text">&nbsp;About Me&nbsp;</span>
-                  </Link>
+                  <GlowingLink url={"/about"} text={"About Me"} />
                 </h1>
               </div>
             </div>
