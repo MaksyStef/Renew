@@ -1,3 +1,9 @@
+@import "./main.scss";
+
+.page-wrapper {
+  background-color: $bgc;
+  background: linear-gradient(243deg,rgb(42, 40, 56) 0%, rgba(12, 16, 22, 1) 44%);
+}
 .cell {
   text-decoration: none !important;
   cursor: pointer !important;
@@ -18,4 +24,37 @@
     margin: 0 auto !important;
     width: clamp(230px, 100%, 1600px) !important;
   } 
+}
+
+.pagination-nav {
+  position: relative;
+  z-index: 2;
+
+  .pagination {
+    user-select: none;
+    --bs-pagination-color: #fff;
+    --bs-pagination-bg: #000;
+    --bs-pagination-border-color: #2c2c2c;
+
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #f00;
+    --bs-pagination-active-border-color: #f00; 
+
+    --bs-pagination-disabled-color: #cee;
+    --bs-pagination-disabled-bg: #000;
+    --bs-pagination-disabled-border-color: #2c2c2c;
+
+    --bs-pagination-focus-color: #a00;
+    --bs-pagination-focus-bg: #000;
+    --bs-pagination-focus-box-shadow: #2c2c2c;
+    --bs-pagination-active-border-color: #2c2c2c;
+
+    --bs-pagination-hover-color: #f00;
+    --bs-pagination-hover-bg: #2c2c2c;
+    --bs-pagination-hover-border-color: #2c2c2c;
+  }
+}
+
+.page-footer {
+  z-index: 1 !important;
 }
