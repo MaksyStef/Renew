@@ -6,3 +6,4 @@ Scripts/
 pyvenv.cfg
 .env
 db.sqlite3
+MakSite/media
