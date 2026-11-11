@@ -3,12 +3,19 @@
 .page-wrapper {
   background-color: $bgc;
   background: linear-gradient(243deg,rgb(42, 40, 56) 0%, rgba(12, 16, 22, 1) 44%);
+  padding: 2rem 4rem;
 }
 .cell {
   text-decoration: none !important;
   cursor: pointer !important;
+  &:hover {
+    .cell__inner {
+      scale: 0.95;
+    }
+  }
 
   &__inner {
+    transition: scale .2s ease-in;
     margin: 0 auto !important;
     width: clamp(230px, 100%, 1600px) !important;
   }

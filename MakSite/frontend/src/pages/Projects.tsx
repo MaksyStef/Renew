@@ -70,7 +70,7 @@ export default function Projects (props: any): ReactElement {
 
   return (
     <>
-      <PageWrapper className="p-4">
+      <PageWrapper>
         <header className="d-flex w-100 flex-row justify-content-between">
           <GlowingLink onClick={handleBack} url="" text={"Back"} className={"fw-bold"} />
           <GlowingLink url={"/"} text={"Homepage"} className={"fw-bold"} />
