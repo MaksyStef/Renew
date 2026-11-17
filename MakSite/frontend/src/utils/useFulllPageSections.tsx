@@ -50,6 +50,9 @@ export interface FullpageSectionsOptions {
   onLeave?: (index: number, to: number) => void
   /** Enable priority-based reveal of children. Pass `true` for defaults. */
   reveal?: boolean | RevealOptions
+  /** Section indexes where wheel / touch / pointer input is ignored.
+   *  Read live on every input. Programmatic goTo / next / prev still work. */
+  lockedSections?: number[]
 }
 
 export interface FullpageSectionsControls {
@@ -231,14 +234,16 @@ export function useFullpageSections(
       }
 
       /* ------------------------------ input ------------------------------ */
+      const isLocked = () =>
+        optsRef.current.lockedSections?.includes(currentIndex) ?? false
 
       Observer.create({
         type: inputs,
         wheelSpeed,
         tolerance,
         preventDefault: true,
-        onDown: () => !animating && goTo(currentIndex - 1, -1),
-        onUp: () => !animating && goTo(currentIndex + 1, 1),
+        onDown: () => !animating && !isLocked() && goTo(currentIndex - 1, -1),
+        onUp: () => !animating && !isLocked() && goTo(currentIndex + 1, 1),
       })
 
       /* ------------------------ first-slide workaround ------------------------ */
