@@ -1,0 +1,93 @@
+/*
+ * Anchored to the top-right corner of the nearest positioned / transformed
+ * ancestor. Inside a section that is the full-viewport .inner wrapper.
+ * The rope runs up past the top edge, so it appears to come from outside the page.
+ */
+.pull-cord {
+  position: absolute;
+  top: 0;
+  right: clamp(1rem, 4vw, 3rem);
+  z-index: 10;
+  width: var(--cord-width, 14px);
+  height: 0;
+
+  /* Everything that moves when the cord is pulled. GSAP animates `y` here. */
+  &__slide {
+    position: absolute;
+    inset: 0 0 auto 0;
+    filter: drop-shadow(2px 4px 3px rgb(0 0 0 / 0.35));
+    will-change: transform;
+  }
+
+  /* Rope: round shading over a vertically tiled texture. */
+  &__rope {
+    position: absolute;
+    left: 0;
+    top: calc(var(--cord-extra) * -1);
+    width: 100%;
+    height: calc(var(--cord-length) + var(--cord-extra));
+    background-image:
+      linear-gradient(90deg,
+        rgb(0 0 0 / 0.5) 0%,
+        rgb(0 0 0 / 0) 28%,
+        rgb(255 255 255 / 0.22) 42%,
+        rgb(0 0 0 / 0) 62%,
+        rgb(0 0 0 / 0.55) 100%),
+      var(--cord-texture);
+    background-size: 100% 100%, var(--cord-texture-size, 100% auto);
+    background-repeat: no-repeat, repeat-y;
+  }
+
+  /* Handle: a turned wooden pull. */
+  &__handle {
+    position: absolute;
+    top: calc(var(--cord-length) - 6px);
+    left: 50%;
+    translate: -50% 0;
+    width: 26px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    border-radius: 50% 50% 50% 50% / 34% 34% 66% 66%;
+    background: radial-gradient(circle at 34% 28%, #d29a66 0%, #8a5430 48%, #3f2514 100%);
+    box-shadow:
+      inset -3px -5px 7px rgb(0 0 0 / 0.4),
+      inset 2px 2px 3px rgb(255 255 255 / 0.18);
+    cursor: grab;
+    pointer-events: auto;
+    touch-action: none;
+    /* the handle owns vertical touch drags */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    /* Knot where the rope meets the handle. */
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      translate: -50% 0;
+      width: 18px;
+      height: 10px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #3c2d1a, #b49a6c 45%, #3c2d1a);
+    }
+
+    /* Larger touch target without a larger handle. */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -12px;
+    }
+  }
+}

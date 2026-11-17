@@ -1,0 +1,14 @@
+.page-wrapper_project-details {
+  section.section {
+    &_2 {
+      .bg {
+        background-color: #000;
+      }
+    }
+    &_3 {
+      .bg {
+        background-image: url("/images/landing4.jpg");
+      }
+    }
+  }
+}
